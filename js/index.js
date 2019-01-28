@@ -92,3 +92,18 @@ let contactP = document.querySelectorAll('.contact p');
 contactP[0].textContent = siteContent["contact"]["address"];
 contactP[1].textContent = siteContent["contact"]["phone"];
 contactP[2].textContent = siteContent["contact"]["email"];
+
+navLinks.forEach(element => element.style.color = "green");
+
+let navBar = document.querySelector("nav");
+console.log(navBar);
+
+let firstNewNavLink = document.createElement("a");
+firstNewNavLink.textContent = "FIRST";
+
+navBar.prepend(firstNewNavLink);
+
+let secondNewNavLink = document.createElement("a");
+secondNewNavLink.textContent = "SECOND";
+
+navBar.appendChild(secondNewNavLink);
