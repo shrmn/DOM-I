@@ -49,4 +49,12 @@ navLinks[3].textContent = siteContent["nav"]["nav-item-4"];
 navLinks[4].textContent = siteContent["nav"]["nav-item-5"];
 navLinks[5].textContent = siteContent["nav"]["nav-item-6"];
 
-console.log(navLinks); 
+let ctaH1 = document.getElementsByTagName('h1');
+ctaH1[0].textContent = siteContent["cta"]["h1"];
+
+let ctaBtn = document.getElementsByTagName('button');
+ctaBtn[0].textContent = siteContent["cta"]["button"];
+
+let ctaImg = document.getElementById("cta-img");
+ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
+console.log(ctaImg);
