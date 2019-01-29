@@ -59,6 +59,11 @@ navLinks.forEach((link, index) => {
   link.textContent = siteContent["nav"][navLinkKeys[index]];
 }) 
 
+// STRETCH reversed flex-direction of section.cta
+
+let ctaBox = document.querySelector(".cta");
+ctaBox.style.flexDirection = "row-reverse";
+
 let ctaH1 = document.querySelector('.cta h1');
 ctaH1.textContent = siteContent["cta"]["h1"];
 
