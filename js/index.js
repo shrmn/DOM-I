@@ -42,6 +42,8 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 let navLinks = document.querySelectorAll('a');
+
+// Left hardcoded values in but commented out for illustration purposes.
 // navLinks[0].textContent = siteContent["nav"]["nav-item-1"];
 // navLinks[1].textContent = siteContent["nav"]["nav-item-2"];
 // navLinks[2].textContent = siteContent["nav"]["nav-item-3"];
@@ -73,22 +75,42 @@ ctaBtn.textContent = siteContent["cta"]["button"];
 let ctaImg = document.getElementById("cta-img");
 ctaImg.setAttribute('src', siteContent["cta"]["img-src"]);
 
-let mainH4 = document.querySelectorAll('.main-content h4');
-mainH4[0].textContent = siteContent["main-content"]["features-h4"]
-mainH4[1].textContent = siteContent["main-content"]["about-h4"]
-mainH4[2].textContent = siteContent["main-content"]["services-h4"]
-mainH4[3].textContent = siteContent["main-content"]["product-h4"]
-mainH4[4].textContent = siteContent["main-content"]["vision-h4"]
-
-let mainP = document.querySelectorAll('.main-content p');
-mainP[0].textContent = siteContent["main-content"]["features-content"]
-mainP[1].textContent = siteContent["main-content"]["about-content"]
-mainP[2].textContent = siteContent["main-content"]["services-content"]
-mainP[3].textContent = siteContent["main-content"]["product-content"]
-mainP[4].textContent = siteContent["main-content"]["vision-content"]
-
 let middleImg = document.getElementById('middle-img');
 middleImg.setAttribute('src', siteContent["main-content"]["middle-img-src"]);
+
+let mainH4 = document.querySelectorAll('.main-content h4');
+// mainH4[0].textContent = siteContent["main-content"]["features-h4"]
+// mainH4[1].textContent = siteContent["main-content"]["about-h4"]
+// mainH4[2].textContent = siteContent["main-content"]["services-h4"]
+// mainH4[3].textContent = siteContent["main-content"]["product-h4"]
+// mainH4[4].textContent = siteContent["main-content"]["vision-h4"]
+
+let mainHeaderKeys = Object.keys(siteContent["main-content"]).filter(keys => {
+  if (keys.includes("h4")) {
+    return keys;
+  }
+});
+
+mainH4.forEach((link, index) => {
+  link.textContent = siteContent["main-content"][mainHeaderKeys[index]];
+});
+
+let mainP = document.querySelectorAll('.main-content p');
+// mainP[0].textContent = siteContent["main-content"]["features-content"]
+// mainP[1].textContent = siteContent["main-content"]["about-content"]
+// mainP[2].textContent = siteContent["main-content"]["services-content"]
+// mainP[3].textContent = siteContent["main-content"]["product-content"]
+// mainP[4].textContent = siteContent["main-content"]["vision-content"]
+
+let mainContentKeys = Object.keys(siteContent["main-content"]).filter(keys => {
+  if (keys.includes("content")) {
+    return keys;
+  }
+});
+
+mainP.forEach((link, index) => {
+  link.textContent = siteContent["main-content"][mainContentKeys[index]];
+});
 
 let contacth4 = document.querySelector('.contact h4');
 contacth4.textContent = siteContent["contact"]["contact-h4"];
@@ -98,10 +120,7 @@ contactP[0].textContent = siteContent["contact"]["address"];
 contactP[1].textContent = siteContent["contact"]["phone"];
 contactP[2].textContent = siteContent["contact"]["email"];
 
-navLinks.forEach(element => element.style.color = "green");
-
 let navBar = document.querySelector("nav");
-console.log(navBar);
 
 let firstNewNavLink = document.createElement("a");
 firstNewNavLink.textContent = "FIRST";
@@ -112,3 +131,7 @@ let secondNewNavLink = document.createElement("a");
 secondNewNavLink.textContent = "SECOND";
 
 navBar.appendChild(secondNewNavLink);
+
+navLinks = document.querySelectorAll('a');
+
+navLinks.forEach(element => element.style.color = "green");
